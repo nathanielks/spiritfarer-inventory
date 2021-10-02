@@ -13,11 +13,17 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import recipes from '@/recipes.json'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  setup () {
+    return {
+      recipes
+    }
   }
 }
 </script>
