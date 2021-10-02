@@ -7,23 +7,17 @@
       below
     </p>
     <el-button type="primary">el-button</el-button>
+    <recipes-table/>
   </div>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import recipes from '@/recipes.json'
+import RecipesTable from '@/components/RecipesTable.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  },
-  setup () {
-    return {
-      recipes
-    }
+    RecipesTable
   }
 }
 </script>
