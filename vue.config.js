@@ -15,11 +15,6 @@ module.exports = {
         include: ['vue', 'vue-router']
       },
       /**
-       * type-checker, recommended disabled for large-scale old project.
-       * @default false
-       */
-      disabledTypeChecker: true,
-      /**
        * lint code by eslint
        * @default false
        */
