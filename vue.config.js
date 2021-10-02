@@ -1,5 +1,6 @@
 module.exports = {
   pluginOptions: {
+    baseUrl: '/',
     vite: {
       /**
        * Plugin[]
