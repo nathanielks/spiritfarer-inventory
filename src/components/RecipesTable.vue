@@ -11,18 +11,23 @@
   </el-table>
 </template>
 <script>
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
+import { useStore } from 'vuex'
 import recipes from '@/recipes.json'
 export default defineComponent({
   setup () {
-    const items = ref(recipes)
+    const store = useStore()
+    /* const inventory = computed(() => store.getters.inventory) */
+
+    /* const items = ref(recipes) */
+    const items = computed(() => store.getters.inventoryRecipes)
     const fields = [
       { prop: 'recipeId', label: 'Recipe #', sortable: true, index: true },
-      { prop: 'type', label: 'Type', sortable: true },
-      { prop: 'size', label: 'Size', sortable: true },
       { prop: 'recipe', label: 'Recipe', sortable: true },
       { prop: 'ingredient1', label: 'Ingredient 1', sortable: true },
-      { prop: 'ingredient2', label: 'Ingredient 2', sortable: true }
+      { prop: 'ingredient2', label: 'Ingredient 2', sortable: true },
+      { prop: 'type', label: 'Type', sortable: true },
+      { prop: 'size', label: 'Size', sortable: true }
     ]
     return {
       items,

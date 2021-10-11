@@ -1,4 +1,5 @@
 export default [
+  { value: 'Rice', categories: ['Type:Grain', 'Size:Small'] },
   { value: 'Anchovy', categories: ['Type:Fish', 'Size:Small'] },
   { value: 'Herring', categories: ['Type:Fish', 'Size:Small'] },
   { value: 'Bay Shrimp', categories: ['Type:Fish', 'Size:Small'] },

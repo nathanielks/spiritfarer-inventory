@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="ingredients">
+  <el-table :data="items">
     <el-table-column
       v-for="{ prop, label, sortable, index } in fields"
       :index="index"
@@ -31,18 +31,8 @@ export default defineComponent({
       { prop: 'categories', label: 'Categories', sortable: true, index: true },
       { prop: 'count', label: 'Count', sortable: true }
     ]
-    const ingredients = computed(() => {
-      return props.items.map(item => {
-        const ingredient = ingredientsDB.find(ing => (ing.value === item.item))
-        return {
-          ...ingredient,
-          ...item
-        }
-      })
-    })
     return {
-      fields,
-      ingredients
+      fields
     }
   }
 })
