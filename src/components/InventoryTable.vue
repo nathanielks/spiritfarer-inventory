@@ -1,5 +1,5 @@
 <template>
-  <el-table :data='items'>
+  <el-table :data="ingredients">
     <el-table-column
       v-for="{ prop, label, sortable, index } in fields"
       :index="index"
@@ -18,19 +18,31 @@
   </el-table>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
+import ingredientsDB from '@/ingredients.js'
 
 export default defineComponent({
   props: {
     items: Array
   },
-  setup () {
+  setup (props) {
     const fields = [
       { prop: 'item', label: 'Name', sortable: true, index: true },
+      { prop: 'categories', label: 'Categories', sortable: true, index: true },
       { prop: 'count', label: 'Count', sortable: true }
     ]
+    const ingredients = computed(() => {
+      return props.items.map(item => {
+        const ingredient = ingredientsDB.find(ing => (ing.value === item.item))
+        return {
+          ...ingredient,
+          ...item
+        }
+      })
+    })
     return {
-      fields
+      fields,
+      ingredients
     }
   }
 })
