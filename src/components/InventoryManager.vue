@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AddToInventory />
+    <AddToInventory @submit="addItem"/>
     <InventoryTable :items="inventory" />
   </div>
 </template>
@@ -18,9 +18,13 @@ export default defineComponent({
   setup () {
     const store = useStore()
     const inventory = computed(() => store.state.inventory)
+    const addItem = payload => store.dispatch('inventoryAddItem', payload)
+    const rmItem = payload => store.dispatch('inventoryRmItem', payload)
 
     return {
-      inventory
+      inventory,
+      addItem,
+      rmItem
     }
   }
 })

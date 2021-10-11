@@ -1,8 +1,8 @@
 <template>
   <el-table :data='items'>
     <el-table-column
-      v-for="{ prop, label, sortable } in fields"
-      :index="!!index"
+      v-for="{ prop, label, sortable, index } in fields"
+      :index="index"
       :key="prop"
       :prop="prop"
       :label="label"
