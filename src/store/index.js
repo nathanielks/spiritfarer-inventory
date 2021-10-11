@@ -7,7 +7,10 @@ export default createStore({
   },
   mutations: {
     INVENTORY_ADD_ITEM (state, payload) {
-      const index = state.inventory.findIndex(item => (item.value = payload.item))
+      const index = state.inventory.findIndex(item => {
+        return (item.item === payload.item)
+      })
+
       if (index < 0) {
         return state.inventory.push(payload)
       }

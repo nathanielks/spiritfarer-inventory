@@ -1,7 +1,7 @@
 <template>
   <div>
     <AddToInventory @submit="addItem"/>
-    <InventoryTable :items="inventory" />
+    <InventoryTable :items="inventory" @remove="rmItem" />
   </div>
 </template>
 <script>
