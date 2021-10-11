@@ -62,10 +62,11 @@ export default defineComponent({
     const submitForm = () => {
       unref(form).validate((valid) => {
         if (valid) {
-          console.log(unref(form))
           emit('submit', { item: item.value, count: count.value })
+          count.value = 1
+          item.value = ''
         } else {
-          console.log('error submit!!')
+          console.error('AddToInventory form invalid')
           return false
         }
       })
